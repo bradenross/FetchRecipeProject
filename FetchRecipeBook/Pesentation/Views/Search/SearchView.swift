@@ -64,15 +64,21 @@ struct SearchView: View {
         .toolbar() {
             ToolbarItem(placement: .principal) {
                 TextField(
-                    "Recipe ID...",
+                    "Recipe ID or Category...",
                     text: $searchField
                 )
+                .onAppear {
+                    UITextField.appearance().clearButtonMode = .whileEditing
+                }
                 .padding(10)
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.white)
                 )
+                .onSubmit {
+                    viewModel.fetchRecipesFilterCategory(filter: searchField)
+                }
             }
         }
         .onAppear() {

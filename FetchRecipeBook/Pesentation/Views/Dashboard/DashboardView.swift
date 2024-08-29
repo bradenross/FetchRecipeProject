@@ -19,7 +19,7 @@ struct DashboardView: View {
                     Divider()
                     RandomRecipeView()
                     Divider()
-                    Text("Created by [Braden Ross](www.bradenross.me)")
+                    Text("Created by [Braden Ross](https://www.bradenross.me)")
                         .font(.system(size: 15))
                         .fontWeight(.light)
                         .foregroundStyle(.gray)

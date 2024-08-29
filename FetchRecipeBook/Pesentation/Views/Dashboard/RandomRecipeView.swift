@@ -48,10 +48,10 @@ struct RandomRecipeView: View {
                             )
                         Spacer()
                         Text(viewModel.recipe?.strMeal ?? "")
+                            .multilineTextAlignment(.leading)
                             .foregroundStyle(.white)
                             .font(.system(size: 25))
                             .fontWeight(.semibold)
-                            .padding(.horizontal)
                             .lineLimit(2)
                             .truncationMode(.tail)
                     }
