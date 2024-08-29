@@ -17,7 +17,6 @@ class CategoriesViewModel: ObservableObject {
             do {
                 let categories = try await APIService.shared.fetchCategories()
                 self.categories = categories
-                print(categories)
             } catch {
                 errorMessage = error.localizedDescription
                 print(errorMessage!)

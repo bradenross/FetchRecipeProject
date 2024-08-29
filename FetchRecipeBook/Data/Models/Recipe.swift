@@ -7,23 +7,23 @@
 
 import Foundation
 
-struct Recipe: Codable {
+struct Recipe: Codable, Hashable {
     let idMeal: String
     let strMeal: String
-    let strDrinkAlternate: String?
-    let strCategory: String?
-    let strArea: String?
+    var strDrinkAlternate: String? = ""
+    var strCategory: String? = ""
+    var strArea: String? = ""
     let strInstructions: String
-    let strMealThumb: String?
-    let strTags: String?
-    let strYoutube: String?
+    var strMealThumb: String = ""
+    var strTags: String? = ""
+    var strYoutube: String? = ""
     let ingredients: [Ingredient]
-    let strSource: String?
-    let strImageSource: String?
+    var strSource: String? = ""
+    var strImageSource: String? = ""
     let strCreativeCommonsConfirmed: Bool?
-    let dateModified: String?
+    var dateModified: String? = ""
     
-    struct Ingredient: Decodable {
+    struct Ingredient: Decodable, Hashable {
         var name: String
         var measurement: String
     }
@@ -65,7 +65,6 @@ struct Recipe: Codable {
             }
         }
         ingredients = ingredientsArray
-        print(ingredients)
     }
     
     func encode(to encoder: Encoder) throws {

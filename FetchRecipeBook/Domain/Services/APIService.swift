@@ -11,8 +11,8 @@ class APIService {
     static let shared = APIService()
     private let baseUrl = "https://themealdb.com/api/json/v1/1"
     
-    func fetchRecipe() async throws -> Recipe {
-        guard let url = URL(string: "\(baseUrl)/lookup.php?i=52771") else {
+    func fetchRecipe(recipeId: String) async throws -> Recipe {
+        guard let url = URL(string: "\(baseUrl)/lookup.php?i=\(recipeId)") else {
             throw URLError(.badURL)
         }
         
@@ -59,6 +59,20 @@ class APIService {
         return recipes
     }
     
-    
+    func fetchRandomRecipe() async throws -> Recipe {
+        guard let url = URL(string: "\(baseUrl)/random.php") else {
+            throw URLError(.badURL)
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let decoder = JSONDecoder()
+        let recipeResponse = try decoder.decode([String: [Recipe]].self, from: data)
+        
+        guard let recipe = recipeResponse["meals"]?.first else {
+            throw URLError(.cannotParseResponse)
+        }
+        
+        return recipe
+    }
 }
 

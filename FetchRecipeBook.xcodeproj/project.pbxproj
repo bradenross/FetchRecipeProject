@@ -30,6 +30,10 @@
 		9CF735662C7EF0E7003B2C01 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF735652C7EF0E7003B2C01 /* SearchView.swift */; };
 		9CF735692C7EF102003B2C01 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF735682C7EF102003B2C01 /* SearchViewModel.swift */; };
 		9CF7356B2C7EF862003B2C01 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7356A2C7EF862003B2C01 /* Colors.swift */; };
+		9CF7356D2C7F9B9D003B2C01 /* BradensFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7356C2C7F9B9D003B2C01 /* BradensFavoritesView.swift */; };
+		9CF7356F2C7F9BE4003B2C01 /* BradensFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7356E2C7F9BE4003B2C01 /* BradensFavoritesViewModel.swift */; };
+		9CF735712C8002A2003B2C01 /* RandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF735702C8002A2003B2C01 /* RandomRecipeView.swift */; };
+		9CF735732C8002BF003B2C01 /* RandomRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF735722C8002BF003B2C01 /* RandomRecipeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		9CF735652C7EF0E7003B2C01 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		9CF735682C7EF102003B2C01 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		9CF7356A2C7EF862003B2C01 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9CF7356C2C7F9B9D003B2C01 /* BradensFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BradensFavoritesView.swift; sourceTree = "<group>"; };
+		9CF7356E2C7F9BE4003B2C01 /* BradensFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BradensFavoritesViewModel.swift; sourceTree = "<group>"; };
+		9CF735702C8002A2003B2C01 /* RandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeView.swift; sourceTree = "<group>"; };
+		9CF735722C8002BF003B2C01 /* RandomRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +274,8 @@
 			children = (
 				9CF735542C7EB52C003B2C01 /* DashboardView.swift */,
 				9CF7355B2C7EED02003B2C01 /* CategoriesView.swift */,
+				9CF7356C2C7F9B9D003B2C01 /* BradensFavoritesView.swift */,
+				9CF735702C8002A2003B2C01 /* RandomRecipeView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -283,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				9CF735582C7ECD41003B2C01 /* CategoriesViewModel.swift */,
+				9CF7356E2C7F9BE4003B2C01 /* BradensFavoritesViewModel.swift */,
+				9CF735722C8002BF003B2C01 /* RandomRecipeViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -446,16 +458,20 @@
 				9CF735492C7E70DE003B2C01 /* RecipeRepository.swift in Sources */,
 				9CF735552C7EB52C003B2C01 /* DashboardView.swift in Sources */,
 				9CF735462C7E63A8003B2C01 /* FetchRecipeUseCase.swift in Sources */,
+				9CF735712C8002A2003B2C01 /* RandomRecipeView.swift in Sources */,
 				9CF7350E2C7E3F60003B2C01 /* FetchRecipeBookApp.swift in Sources */,
+				9CF735732C8002BF003B2C01 /* RandomRecipeViewModel.swift in Sources */,
 				9CF735522C7E7818003B2C01 /* RecipeView.swift in Sources */,
 				9CF7355F2C7EEEB9003B2C01 /* Sizes.swift in Sources */,
 				9CF7354C2C7E7180003B2C01 /* RecipeRepositoryImpl.swift in Sources */,
 				9CF735402C7E4ADD003B2C01 /* RecipePreview.swift in Sources */,
 				9CF7355C2C7EED02003B2C01 /* CategoriesView.swift in Sources */,
 				9CF735422C7E50F6003B2C01 /* APIService.swift in Sources */,
+				9CF7356D2C7F9B9D003B2C01 /* BradensFavoritesView.swift in Sources */,
 				9CF735592C7ECD41003B2C01 /* CategoriesViewModel.swift in Sources */,
 				9CF735662C7EF0E7003B2C01 /* SearchView.swift in Sources */,
 				9CF7354F2C7E76C3003B2C01 /* RecipeViewModel.swift in Sources */,
+				9CF7356F2C7F9BE4003B2C01 /* BradensFavoritesViewModel.swift in Sources */,
 				9CF735692C7EF102003B2C01 /* SearchViewModel.swift in Sources */,
 				9CF7353E2C7E4567003B2C01 /* Recipe.swift in Sources */,
 				9CF735572C7ECC16003B2C01 /* Category.swift in Sources */,

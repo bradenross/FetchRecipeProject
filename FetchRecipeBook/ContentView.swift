@@ -13,7 +13,7 @@ struct ContentView: View {
             NavigationStack() {
                 DashboardView()
             }
-            .tint(Color.primary)
+            .tint(Color.black)
         }
         .preferredColorScheme(.light)
     }

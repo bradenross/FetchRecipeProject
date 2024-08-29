@@ -9,7 +9,11 @@ import Foundation
 import SwiftUI
 
 struct RecipeView: View {
-    @StateObject private var viewModel: RecipeViewModel = RecipeViewModel()
+    @StateObject private var viewModel: RecipeViewModel
+    
+    init(recipeId: String) {
+        _viewModel = StateObject(wrappedValue: RecipeViewModel(recipeId: recipeId))
+    }
     
     var body: some View {
         VStack {
@@ -37,10 +41,10 @@ struct RecipeView: View {
                         .foregroundStyle(.white)
                 }
                 VStack() {
-                    
+                    Text(viewModel.recipe?.idMeal ?? "")
                     VStack(alignment: .leading) {
                         ForEach(viewModel.recipe?.ingredients ?? [], id: \.name){ ingredient in
-                            Text("- \(ingredient.measurement) \(ingredient.name)")
+                            Text("• \(ingredient.measurement) \(ingredient.name)")
                         }
                     }
                     if(viewModel.recipe?.strYoutube != nil) {
@@ -52,8 +56,5 @@ struct RecipeView: View {
         }
         .ignoresSafeArea()
         .padding()
-        .onAppear() {
-            viewModel.fetchRecipe()
-        }
     }
 }

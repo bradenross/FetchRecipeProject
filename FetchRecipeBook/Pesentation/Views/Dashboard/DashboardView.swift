@@ -12,7 +12,18 @@ struct DashboardView: View {
     var body: some View {
         VStack() {
             ScrollView() {
-                CategoriesView()
+                VStack(spacing: 10) {
+                    CategoriesView()
+                    Divider()
+                    BradensFavoritesView()
+                    Divider()
+                    RandomRecipeView()
+                    Divider()
+                    Text("Created by [Braden Ross](www.bradenross.me)")
+                        .font(.system(size: 15))
+                        .fontWeight(.light)
+                        .foregroundStyle(.gray)
+                }
             }
         }
         .navigationTitle("Hungry?")

@@ -18,10 +18,8 @@ class SearchViewModel: ObservableObject {
             do {
                 let meals = try await APIService.shared.fetchFilteredByCategory(category: filter)
                 self.meals = meals
-                print(meals)
             } catch {
                 errorMessage = error.localizedDescription
-                print(errorMessage)
             }
         }
     }
