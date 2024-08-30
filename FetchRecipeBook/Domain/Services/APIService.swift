@@ -11,6 +11,7 @@ class APIService {
     static let shared = APIService()
     private let baseUrl = "https://themealdb.com/api/json/v1/1"
     
+    // Fetch a single recipe from API
     func fetchRecipe(recipeId: String) async throws -> Recipe {
         guard let url = URL(string: "\(baseUrl)/lookup.php?i=\(recipeId)") else {
             throw URLError(.badURL)
@@ -27,6 +28,7 @@ class APIService {
         return recipes
     }
     
+    // Fetch all categories from API
     func fetchCategories() async throws -> [Category] {
         guard let url = URL(string: "\(baseUrl)/categories.php") else {
             throw URLError(.badURL)
@@ -43,6 +45,7 @@ class APIService {
         return categories
     }
     
+    // Fetch recipe previews from API by category
     func fetchFilteredByCategory(category: String) async throws -> [RecipePreview] {
         guard let url = URL(string: "\(baseUrl)/filter.php?c=\(category)") else {
             throw URLError(.badURL)
@@ -59,6 +62,7 @@ class APIService {
         return recipes
     }
     
+    // Fetch a single recipe from API
     func fetchRandomRecipe() async throws -> Recipe {
         guard let url = URL(string: "\(baseUrl)/random.php") else {
             throw URLError(.badURL)
