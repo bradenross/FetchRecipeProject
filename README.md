@@ -3,9 +3,9 @@
 ## Overview
 Allows users to fetch recipes from the [themealdb API](https://themealdb.com/api.php). Creatively and neatly designed in order to be user friendly.
 
-![IMG_3859](https://github.com/user-attachments/assets/943192c4-55ac-4822-a663-a43ce42a84b9)
-![IMG_3860](https://github.com/user-attachments/assets/80ab885f-4dd7-467a-a815-6e739d31e0e3)
-![IMG_3861](https://github.com/user-attachments/assets/cc7d419c-0230-4f2f-b01a-839c0b006fbf)
+![IMG_3859](https://github.com/user-attachments/assets/016b0002-f81e-4c1f-91d9-387ab96062ef)
+![IMG_3860](https://github.com/user-attachments/assets/020666bc-587c-4540-aea6-72b89cc6af54)
+![IMG_3861](https://github.com/user-attachments/assets/947f6b59-d1f5-44b8-83ad-be9aaeb544e3)
 
 ## Setup and Installation
 1. **Xcode Version**: Xcode 16.0 or higher.
