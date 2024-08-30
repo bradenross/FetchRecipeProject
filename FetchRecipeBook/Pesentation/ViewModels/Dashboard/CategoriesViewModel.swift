@@ -19,7 +19,6 @@ class CategoriesViewModel: ObservableObject {
                 self.categories = categories
             } catch {
                 errorMessage = error.localizedDescription
-                print(errorMessage!)
             }
         }
     }

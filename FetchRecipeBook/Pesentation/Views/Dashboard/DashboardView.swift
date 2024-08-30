@@ -12,7 +12,7 @@ struct DashboardView: View {
     var body: some View {
         VStack() {
             ScrollView() {
-                VStack(spacing: 10) {
+                VStack(spacing: Sizes.dashboardSpacing) {
                     Spacer()
                         .frame(height: 20)
                     CategoriesView()

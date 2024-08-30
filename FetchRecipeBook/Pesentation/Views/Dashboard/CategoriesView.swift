@@ -15,12 +15,10 @@ struct CategoriesView: View {
         GridItem(.flexible())
     ]
     
-    
-    
     var body: some View {
         VStack(alignment: .leading) {
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: rows, spacing: 30) {
+                LazyHGrid(rows: rows, spacing: Sizes.categorySpacing) {
                     ForEach(categoriesViewModel.categories ?? [], id: \.self) { category in
                         NavigationLink(destination: SearchView(searchField: category.strCategory.uppercased())) {
                             VStack() {
@@ -47,7 +45,7 @@ struct CategoriesView: View {
                     }
                 }
                 .padding(.horizontal)
-                .frame(maxHeight: 180)
+                .frame(maxHeight: Sizes.categoriesHeight)
             }
         }
         .onAppear() {

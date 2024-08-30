@@ -26,7 +26,6 @@ class BradensFavoritesViewModel: ObservableObject {
                 }
             } catch {
                 let errorMessage = error.localizedDescription
-                print(errorMessage)
             }
         }
     }

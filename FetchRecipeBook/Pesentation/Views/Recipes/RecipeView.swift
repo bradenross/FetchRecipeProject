@@ -58,7 +58,7 @@ struct RecipeView: View {
                                 }
                             }
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 100)
+                        .frame(maxWidth: .infinity, maxHeight: Sizes.titleViewHeight)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 15)
@@ -70,7 +70,7 @@ struct RecipeView: View {
                         InstructionsView(instructions: viewModel.recipe?.strInstructions ?? "")
                             .padding(.top, 25)
                     }
-                    .offset(CGSize(width: 0.0, height: -50.0))
+                    .offset(CGSize(width: 0.0, height: Sizes.titleViewOffsetY))
                     .padding()
                 }
             }

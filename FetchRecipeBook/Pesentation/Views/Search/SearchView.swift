@@ -24,12 +24,12 @@ struct SearchView: View {
                                         image
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(maxWidth: 90, maxHeight: 90)
+                                            .frame(maxWidth: Sizes.searchImageSize, maxHeight: Sizes.searchImageSize)
                                     } placeholder: {
                                             ProgressView()
-                                            .frame(maxWidth: 90, maxHeight: 90)
+                                            .frame(maxWidth: Sizes.searchImageSize, maxHeight: Sizes.searchImageSize)
                                     }
-                                    .frame(maxWidth: 90, maxHeight: 90)
+                                    .frame(maxWidth: Sizes.searchImageSize, maxHeight: Sizes.searchImageSize)
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text(meal.strMeal)
                                             .foregroundStyle(.black)

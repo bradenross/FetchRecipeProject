@@ -20,11 +20,8 @@ class RandomRecipeViewModel: ObservableObject {
             do {
                 let rec = try await APIService().fetchRandomRecipe()
                 recipe = rec
-                print("RANDOM")
-                print(recipe)
             } catch {
                 let error = error.localizedDescription
-                print(error)
             }
         }
     }

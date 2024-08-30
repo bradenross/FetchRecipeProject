@@ -16,7 +16,7 @@ class SearchViewModel: ObservableObject {
     func fetchRecipesFilterCategory(filter: String) {
         Task {
             do {
-                var filterHasNumbers = (filter.rangeOfCharacter(from: .decimalDigits)) != nil
+                let filterHasNumbers = (filter.rangeOfCharacter(from: .decimalDigits)) != nil
                 if(filterHasNumbers) {
                     let meals = try await APIService().fetchRecipe(recipeId: filter)
                     self.meals = [RecipePreview(strMeal: meals.strMeal, strMealThumb: meals.strMealThumb, idMeal: meals.idMeal)]

@@ -25,7 +25,6 @@ class RecipeViewModel: ObservableObject {
                 self.recipe = recipe
             } catch {
                 errorMessage = error.localizedDescription
-                print(errorMessage)
             }
         }
     }
