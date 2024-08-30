@@ -10,23 +10,18 @@ import Foundation
 struct Recipe: Codable, Hashable {
     let idMeal: String
     let strMeal: String
-    var strDrinkAlternate: String? = ""
-    var strCategory: String? = ""
-    var strArea: String? = ""
+    var strDrinkAlternate: String = ""
+    var strCategory: String = ""
+    var strArea: String = ""
     let strInstructions: String
     var strMealThumb: String = ""
-    var strTags: String? = ""
-    var strYoutube: String? = ""
+    var strTags: String = ""
+    var strYoutube: String = ""
     let ingredients: [Ingredient]
-    var strSource: String? = ""
-    var strImageSource: String? = ""
+    var strSource: String = ""
+    var strImageSource: String = ""
     let strCreativeCommonsConfirmed: Bool?
-    var dateModified: String? = ""
-    
-    struct Ingredient: Decodable, Hashable {
-        var name: String
-        var measurement: String
-    }
+    var dateModified: String = ""
     
     enum CodingKeys: String, CodingKey {
         case idMeal, strMeal, strDrinkAlternate, strCategory, strArea, strInstructions, strMealThumb, strTags, strYoutube, strSource, strImageSource, strCreativeCommonsConfirmed, dateModified
@@ -45,17 +40,17 @@ struct Recipe: Codable, Hashable {
         
         idMeal = try container.decode(String.self, forKey: .idMeal)
         strMeal = try container.decode(String.self, forKey: .strMeal)
-        strDrinkAlternate = try container.decodeIfPresent(String.self, forKey: .strDrinkAlternate)
+        strDrinkAlternate = try container.decodeIfPresent(String.self, forKey: .strDrinkAlternate) ?? ""
         strCategory = try container.decode(String.self, forKey: .strCategory)
         strArea = try container.decode(String.self, forKey: .strArea)
         strInstructions = try container.decode(String.self, forKey: .strInstructions)
         strMealThumb = try container.decode(String.self, forKey: .strMealThumb)
-        strTags = try container.decodeIfPresent(String.self, forKey: .strTags)
+        strTags = try container.decodeIfPresent(String.self, forKey: .strTags) ?? ""
         strYoutube = try container.decode(String.self, forKey: .strYoutube)
-        strSource = try container.decodeIfPresent(String.self, forKey: .strSource)
-        strImageSource = try container.decodeIfPresent(String.self, forKey: .strImageSource)
+        strSource = try container.decodeIfPresent(String.self, forKey: .strSource) ?? ""
+        strImageSource = try container.decodeIfPresent(String.self, forKey: .strImageSource) ?? ""
         strCreativeCommonsConfirmed = try container.decodeIfPresent(Bool.self, forKey: .strCreativeCommonsConfirmed)
-        dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
+        dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified) ?? ""
         
         var ingredientsArray: [Ingredient] = []
         for i in 1...20 {

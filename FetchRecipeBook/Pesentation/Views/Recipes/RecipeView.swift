@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct RecipeView: View {
+    @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel: RecipeViewModel
     
     init(recipeId: String) {
@@ -18,43 +19,63 @@ struct RecipeView: View {
     var body: some View {
         VStack {
             ScrollView() {
-                ZStack(alignment: .bottom) {
+                VStack(spacing: 0) {
                     AsyncImage(url: URL(string: viewModel.recipe?.strMealThumb ?? "")) {image in
                         image
                             .resizable()
                             .scaledToFit()
-                            .overlay(
-                                LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .center, endPoint: .bottom)
-                            )
                     } placeholder: {
                         ZStack(){
                             ProgressView()
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 200)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(.gray)
                         )
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 200)
-                    Text("\(viewModel.recipe?.strMeal ?? "")")
-                        .foregroundStyle(.white)
-                }
-                VStack() {
-                    Text(viewModel.recipe?.idMeal ?? "")
-                    VStack(alignment: .leading) {
-                        ForEach(viewModel.recipe?.ingredients ?? [], id: \.name){ ingredient in
-                            Text("• \(ingredient.measurement) \(ingredient.name)")
+                    VStack() {
+                        HStack() {
+                            VStack(alignment: .leading) {
+                                Text("\(viewModel.recipe?.strMeal ?? "")")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.medium)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .lineLimit(1)
+                                Text("\(viewModel.recipe?.strCategory ?? "") • \(viewModel.recipe?.strArea ?? "")")
+                                    .font(.system(size: 15))
+                                    .fontWeight(.light)
+                                    .foregroundStyle(Color.primaryGreen)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .lineLimit(1)
+                            }
+                            Spacer()
+                            if(viewModel.recipe?.strYoutube != nil) {
+                                Link(destination: URL(string: viewModel.recipe?.strYoutube ?? "")!) {
+                                    HStack() {
+                                        Image(systemName: "play.tv.fill")
+                                            .foregroundStyle(Color.primaryGreen)
+                                    }
+                                }
+                            }
                         }
+                        .frame(maxWidth: .infinity, maxHeight: 100)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(.white)
+                                .shadow(radius: 5)
+                        )
+                        IngredientsView(ingredients: viewModel.recipe?.ingredients ?? [])
+                            .frame(maxWidth: .infinity)
+                        InstructionsView(instructions: viewModel.recipe?.strInstructions ?? "")
+                            .padding(.top, 25)
                     }
-                    if(viewModel.recipe?.strYoutube != nil) {
-                        Text("[Video Link](\(viewModel.recipe?.strYoutube ?? ""))")
-                    }
+                    .offset(CGSize(width: 0.0, height: -50.0))
+                    .padding()
                 }
-                .frame(maxWidth: .infinity)
             }
+            .frame(maxHeight: .infinity)
         }
         .ignoresSafeArea()
-        .padding()
     }
 }

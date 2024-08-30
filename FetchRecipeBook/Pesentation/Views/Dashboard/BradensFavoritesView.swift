@@ -34,7 +34,7 @@ struct BradensFavoritesView: View {
                                     .lineLimit(1)
                                     .font(.system(size: 12))
                                     .fontWeight(.semibold)
-                                Text("\(recipe.strCategory ?? "")")
+                                Text("\(recipe.strCategory)")
                                     .foregroundStyle(.gray)
                                     .truncationMode(.tail)
                                     .lineLimit(1)

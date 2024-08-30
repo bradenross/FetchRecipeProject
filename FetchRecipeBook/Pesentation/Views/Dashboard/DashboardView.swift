@@ -13,6 +13,8 @@ struct DashboardView: View {
         VStack() {
             ScrollView() {
                 VStack(spacing: 10) {
+                    Spacer()
+                        .frame(height: 20)
                     CategoriesView()
                     Divider()
                     BradensFavoritesView()
@@ -26,8 +28,12 @@ struct DashboardView: View {
                 }
             }
         }
-        .navigationTitle("Hungry?")
         .toolbar() {
+            ToolbarItem(placement: .topBarLeading) {
+                Text("Hungry?")
+                    .font(.title)
+                    .fontWeight(.bold)
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {}) {
                     NavigationLink(destination: SearchView()) {

@@ -15,49 +15,54 @@ struct SearchView: View {
     var body: some View {
         VStack() {
             ScrollView() {
-                if let meals = viewModel.meals {
-                    ForEach(meals, id: \.self) { meal in
-                        NavigationLink(destination: RecipeView(recipeId: meal.idMeal)) {
-                            HStack() {
-                                AsyncImage(url: URL(string: meal.strMealThumb)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 90, maxHeight: 90)
-                                } placeholder: {
-                                        ProgressView()
-                                        .frame(maxWidth: 90, maxHeight: 90)
-                                }
-                                .frame(maxWidth: 90, maxHeight: 90)
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(meal.strMeal)
-                                        .foregroundStyle(.black)
-                                        .fontWeight(.medium)
-                                        .truncationMode(.tail)
-                                        .multilineTextAlignment(.leading)
-                                    HStack() {
-                                        ForEach(0..<5) { num in
-                                            Image(systemName: "star.fill")
-                                                .foregroundStyle(.yellow)
+                VStack() {
+                    if let meals = viewModel.meals {
+                        ForEach(meals, id: \.self) { meal in
+                            NavigationLink(destination: RecipeView(recipeId: meal.idMeal)) {
+                                HStack() {
+                                    AsyncImage(url: URL(string: meal.strMealThumb)) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(maxWidth: 90, maxHeight: 90)
+                                    } placeholder: {
+                                            ProgressView()
+                                            .frame(maxWidth: 90, maxHeight: 90)
+                                    }
+                                    .frame(maxWidth: 90, maxHeight: 90)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(meal.strMeal)
+                                            .foregroundStyle(.black)
+                                            .fontWeight(.medium)
+                                            .truncationMode(.tail)
+                                            .multilineTextAlignment(.leading)
+                                        HStack() {
+                                            ForEach(0..<5) { num in
+                                                Image(systemName: "star.fill")
+                                                    .foregroundStyle(.yellow)
+                                            }
                                         }
                                     }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .padding(.horizontal)
                                 }
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .padding(.horizontal)
+                                .background(
+                                    .white
+                                )
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                .clipped()
+                                .padding(.horizontal)
                             }
-                            .background(
-                                .white
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .clipped()
-                            .padding(.horizontal)
                         }
                     }
                 }
+                .padding(.bottom, 20)
             }
             Spacer()
         }
+        .ignoresSafeArea(edges: .bottom)
+        .padding(.top, 10)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.whiteGreen)
         .toolbarBackground(Color.whiteGreen)
